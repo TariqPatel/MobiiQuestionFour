@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<mvx:MvxContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MVVM.Core.Pages.SecondPage"
+             xmlns:res="clr-namespace:MVVM.Core.Resources;assembly=MVVM.Core"
+             xmlns:mvx="clr-namespace:MvvmCross.Forms.Views;assembly=MvvmCross.Forms"
+             Title="Page 2">
+  <StackLayout>
+    <Button Text="Add to Employees" Command="{Binding AddToListCommand}" />
+      <ListView x:Name="EmployeeView" ItemsSource="{Binding Employees, Mode=TwoWay}">
+          <ListView.ItemTemplate>
+              <DataTemplate>
+                  <TextCell Text="{Binding DisplayName}" />
+              </DataTemplate>
+          </ListView.ItemTemplate>
+      </ListView>
+  </StackLayout>
+</mvx:MvxContentPage>

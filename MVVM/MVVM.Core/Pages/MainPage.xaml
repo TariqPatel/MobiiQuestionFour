@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<mvx:MvxContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MVVM.Core.Pages.MainPage"
+             xmlns:res="clr-namespace:MVVM.Core.Resources;assembly=MVVM.Core"
+             xmlns:mvx="clr-namespace:MvvmCross.Forms.Views;assembly=MvvmCross.Forms"
+             xmlns:customControl="clr-namespace:MVVM.Core.CustomControl;assembly=MVVM.Core"
+             Title="{Binding Path=Title}"
+             BackgroundColor="{Binding Path=Color}">
+  <ContentPage.ToolbarItems>
+    <ToolbarItem Text="Item"
+         Order="Primary"
+         Priority="0"
+         Icon="Icon.png" />
+  </ContentPage.ToolbarItems>
+  <ContentPage.Content>
+    <Grid>
+      <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="*"/>
+          <ColumnDefinition Width="Auto"/>
+          <ColumnDefinition Width="*"/>
+      </Grid.ColumnDefinitions>
+      <Grid.RowDefinitions>
+          <RowDefinition Height="*"/>
+          <RowDefinition Height="Auto"/>
+          <RowDefinition Height="*"/>
+      </Grid.RowDefinitions>
+      <StackLayout Grid.Row="1" Grid.Column="1">
+        <StackLayout Orientation="Horizontal">
+            <Label TextColor="#77d065" FontSize = "21" Text="Check Box 1" />
+          <customControl:CheckBoxControl HorizontalOptions="Center" Command="{Binding ChangeTitle}"/>
+        </StackLayout>
+          <StackLayout Orientation="Horizontal">
+              <Label TextColor="#77d065" FontSize = "21" Text="Check Box 2" />
+          <customControl:CheckBoxControl x:Name="SecondBox" HorizontalOptions="Center" Command="{Binding ChangeBackground}"/>
+          </StackLayout>
+          <StackLayout Orientation="Horizontal">
+              <Label TextColor="#77d065" FontSize = "21" Text="Check Box 3" />
+          <customControl:CheckBoxControl x:Name="ThirdBox" HorizontalOptions="Center"  Command="{Binding ChangeSecondBox}"/>
+          </StackLayout>
+          <StackLayout Orientation="Horizontal">
+              <Label TextColor="#77d065" FontSize = "21" Text="Check Box 4" />
+          <customControl:CheckBoxControl HorizontalOptions="Center" UseCustomImage="true"/>
+          </StackLayout>
+          <Button Text="{res:Translate GoToSecondPageText}" Command="{Binding GoToSecondPageCommand}" />
+      </StackLayout>
+    </Grid>
+  </ContentPage.Content>
+</mvx:MvxContentPage>
